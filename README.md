@@ -12,7 +12,7 @@
 
 ### Шаг 2
 
-Для установки добавьте в composer.json:
+Для установки добавьте в .rocketeer/composer.json:
 
 ```
 "repositories":[
@@ -29,19 +29,20 @@
 Выполните команды:
 
 ```
-Rocketeer plugin:install advmaker/Telegram-rocketeer
-Rocketeer plugin:config advmaker/Telegram-rocketeer
+rocketeer plugin:install advmaker/Telegram-rocketeer
+rocketeer plugin:config advmaker/Telegram-rocketeer
 ```
-Затем добавьте в массив plugins в файле .Rocketeer/config.php:
+
+Затем добавьте в массив plugins в файле .rocketeer/config.php:
 
 ```
     'plugins'          => ['Rocketeer\Plugins\Telegram\RocketeerTelegram',
     ],
 ```
-Проверьте загрузился ли плагин командой:
+Выполните команду:
 
 ```
-Rocketeer plugin:list
+rocketeer plugin:list
 ```
 Должно получиться:
 
@@ -52,11 +53,11 @@ Rocketeer plugin:list
 | Rocketeer\Plugins\Telegram\RocketeerTelegram |
 +----------------------------------------------+
 ```
-Это значит что плагин загружен и будет посылать сообщения в соответствии c заданной конфигурацией.
+Это значит что плагин загружен.
 
 ### Шаг 3 
 
-Отредактируйте файл .Rocketeer/plugins/rocketeers/Telegram-rocketeer/config.php:
+Отредактируйте файл .rocketeer/vendor/advmaker/Telegram-rocketeer/src/config/config.php:
 Введите полученый у Botfather token в api_key, введите его имя, и id чата куда он будет слать сообщения.
 Например:
 ```
@@ -70,7 +71,7 @@ Rocketeer plugin:list
 ];
 ```
 Для того чтобы узнать chat_id:
-Добавьте бота в группу и получите list of updates url запросом:
+Добавьте бота в группу назначив его администратором, отправьте личное сообщение в чате и получите list of updates запросом url:
 ```
 https://api.telegram.org/bot(api_key)/getUpdates
 
@@ -81,9 +82,10 @@ https://api.telegram.org/bot123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11/getUpdates
 ```
 Получаем:
 ```
-{"update_id":8393,"message":{"message_id":3,"from":{"id":7474,"first_name":"AAA"},"chat":
-{"id":,"title":""},"date":25497,"new_chat_participant":
-{"id":71,"first_name":"NAME","username":"YOUR_BOT_NAME"}}}
+"message":{"message_id":9,
+"from":{"id":175846562,"first_name":"test","last_name":"test","username":"test"},
+"chat":{"id":123456,"title":"test","type":"group"},
+"date":1463496376,"text":"test","entities":[{"type":"mention","offset":0,"length":12}]}}]}
 ```
 Берите "id" элемента "chat"
 
