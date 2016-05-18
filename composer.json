@@ -1,0 +1,22 @@
+{
+  "name": "deadyshka/Telegram-rocketeer",
+  "description": "Telegram plugin for Rocketeer",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Viktor Tabishev",
+      "email": "v.tabishev@advmaker.net"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "~4.2",
+    "anahkiasen/rocketeer": "^2.0",
+    "longman/telegram-bot": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rocketeer\\Plugins\\Telegram\\": "src/telegram"
+    }
+  }
+}
